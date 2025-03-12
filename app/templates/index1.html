@@ -33,7 +33,7 @@
         }
 
         .gradient-bg {
-            background: linear-gradient(90deg,rgba(179, 0, 255, 0.48),rgba(0, 217, 255, 0.27),rgba(0, 225, 255, 0.8));
+            background: linear-gradient(90deg,rgb(0, 217, 255),rgb(0, 0, 0),rgba(234, 0, 255, 0.51));
         }
 
         .blur-bg {
@@ -57,50 +57,49 @@
   </style>
  </head>
  <body class="gradient-bg text-gray-100 scroll-smooth dark-mode">
-    <header class="fixed w-full shadow-md p-4 z-50 top-0 bg-gradient-to-r from-gray-400 via-gray-500 to-black text-white shadow-2xl backdrop-blur-md border-b border-gray-700">
+    <header class="fixed w-full p-4 z-50 top-0 bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <!-- Logo -->
-            <div class="flex items-center">
-                <img 
-                    alt="Vardano Books Logo" 
-                    src="static/images/logo_no_bg.png"
-                    style="height:60px; width: auto; filter: drop-shadow(1px 1px 2px rgba(255, 255, 255, 0.68));" 
-                    class="h-12 w-auto"
-                />
-                <h1 class="ml-3 text-2xl font-bold text-white tracking-wide">
-                    VARDANO BOOKS
-                </h1>
-            </div>
-    
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-8 items-center text-lg">
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#about">About</a></li>
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#skills">Expertise</a></li>
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#projects">Books</a></li>
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#experience">Experience</a></li>
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#contact">Contact</a></li>
-            </ul>
-    
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-white text-3xl focus:outline-none transition-transform hover:scale-110">
-                ☰
-            </button>
+           <!-- Logo -->
+           <div class="flex items-center">
+              <img 
+                 alt="Vardano Books Logo" 
+                 src="static/images/logo_no_bg.png" 
+                 style="height:50px; width: auto; filter: drop-shadow(4px 6px 6px rgba(255, 255, 255, 0.6));"
+              />
+              <h1 class="ml-2 text-xl font-bold text-white">
+                 VARDANO BOOKS
+              </h1>
+           </div>
+     
+           <!-- Desktop Menu -->
+           <ul class="hidden md:flex space-x-6 items-center">
+              <li><a class="nav-link hover:text-gray-300" href="#about">About</a></li>
+              <li><a class="nav-link hover:text-gray-300" href="#skills">Expertise</a></li>
+              <li><a class="nav-link hover:text-gray-300" href="#projects">Projects</a></li>
+              <li><a class="nav-link hover:text-gray-300" href="#experience">Experience</a></li>
+              <li><a class="nav-link hover:text-gray-300" href="#contact">Contact</a></li>
+           </ul>
+     
+           <!-- Mobile Menu Button -->
+           <button id="menu-btn" class="md:hidden text-white text-3xl focus:outline-none">
+              ☰
+           </button>
         </div>
-    
+     
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 py-4 backdrop-blur-lg rounded-b-xl shadow-lg">
-            <ul class="flex flex-col space-y-4 text-center text-lg">
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#about">About</a></li>
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#skills">Expertise</a></li>
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#projects">Books</a></li>
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#experience">Experience</a></li>
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#contact">Contact</a></li>
-            </ul>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 py-4 backdrop-blur-lg">
+           <ul class="flex flex-col space-y-4 text-center">
+              <li><a class="nav-link block py-2 hover:text-gray-300" href="#about">About</a></li>
+              <li><a class="nav-link block py-2 hover:text-gray-300" href="#skills">Expertise</a></li>
+              <li><a class="nav-link block py-2 hover:text-gray-300" href="#projects">Projects</a></li>
+              <li><a class="nav-link block py-2 hover:text-gray-300" href="#experience">Experience</a></li>
+              <li><a class="nav-link block py-2 hover:text-gray-300" href="#contact">Contact</a></li>
+           </ul>
         </div>
-    </header>
-    
-    <!-- JavaScript for Smooth Scroll & Mobile Menu -->
-    <script>
+     </header>
+     
+     <!-- JavaScript for Smooth Scroll & Mobile Menu -->
+     <script>
         // Smooth Scrolling for Navigation Links
         document.querySelectorAll('.nav-link').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -108,18 +107,17 @@
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    
+     
                 // Close mobile menu after clicking a link
                 document.getElementById('mobile-menu').classList.add('hidden');
             });
         });
-    
+     
         // Mobile Menu Toggle
         document.getElementById('menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-    </script>
-    
+     </script>
      
   <!-- Hero Section -->
   <section class="text-white py-20 mt-16">
@@ -136,10 +134,8 @@
     </div>
     <div class="md:w-1/2 mt-10 md:mt-0 slide-in">
      <img alt="A detailed illustration of Vishesh, a young enthusiastic web developer, working on a laptop with code on the screen" 
-     class="rounded-full" height="500" 
-     style="filter: drop-shadow(10px 10px 20px rgb(255, 255, 255)) 
-        drop-shadow(-10px -10px 80px rgba(0, 225, 255, 0.8));"
-     src="static/images/hero.png" width="500"/>
+     class="rounded-full shadow-lg" height="500" 
+     src="http://www.reesponsive.co.uk/wp-content/uploads/2014/02/pink-books.jpg" width="500"/>
     </div>
    </div>
   </section>
@@ -260,163 +256,85 @@
        </div>
     </div>
  </section>
- <!-- Books Section -->
+ <!-- Projects Section -->
 <section class="bg-gray-700 py-20" id="projects">
     <div class="container mx-auto px-6">
-       <h1 class="text-4xl font-bold text-center mb-12 text-white">
-        Books
-       </h1>
+       <h2 class="text-3xl font-bold text-center mb-12 text-white">
+          Our Projects
+       </h2>
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <div class="overflow-hidden rounded-lg">
-                <img alt="Dynamic Web Application UI" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/01.jpg" width="300"/>
+                <img alt="Dynamic Web Application UI" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/wF5W6pQrrs9FSiEDT9pGLpHmXR-odU05ZS5sxDlp9JA.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                Nursery Books
+                Dynamic Web App
              </h3>
              <p class="text-lg text-gray-300">
                 A highly responsive web application featuring an interactive UI with modern design.
              </p>
           </div>
  
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <div class="overflow-hidden rounded-lg">
-                <img alt="Personal Blog Website" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/02.jpg" width="300"/>
+                <img alt="Personal Blog Website" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/nBA6dVDTEAqcI9z_HU5c12WI2mfmf2smd5WvlOOwrAA.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                LKG Books
+                Personal Blog
              </h3>
              <p class="text-lg text-gray-300">
                 A blog platform featuring engaging content, clean layouts, and smooth navigation.
              </p>
           </div>
  
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <div class="overflow-hidden rounded-lg">
-                <img alt="E-commerce Platform" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/03.jpg" width="300"/>
+                <img alt="E-commerce Platform" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/ACWp2KJBOWQK-KZraUnYGje0a5WA_Ul1fjn331I_yFY.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                UKG Books
+                E-commerce Platform
              </h3>
              <p class="text-lg text-gray-300">
                 A feature-rich e-commerce website with product listings, shopping cart, and checkout.
              </p>
           </div>
  
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/04.jpg" width="300"/>
+                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/cfitZndJ3nudpho-IgiDZ-oFElxBDXzm3bfKvKaJZ_s.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 1 Book
+                Social Media App
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
              </p>
           </div>
  
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/05.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 2 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/06.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 3 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/07.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 4 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/08.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 5 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/09.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 6 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
-          <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
-            <div class="overflow-hidden rounded-lg">
-                <img alt="Social Media App" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/class-6.jpg" width="300"/>
-             </div>
-             <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 7 Book
-             </h3>
-             <p class="text-lg text-gray-300">
-                A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
-          </div>
- 
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
              <div class="overflow-hidden rounded-lg">
-                <img alt="Task Management Tool" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/class-7.jpg" width="300"/>
+                <img alt="Task Management Tool" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/OTigZgbn5iluW93OZx7aUrV9yoIucWQXUJjr6XK_lrM.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 8 Book
+                Task Manager
              </h3>
              <p class="text-lg text-gray-300">
                 A powerful task management tool with a Kanban board and real-time tracking.
              </p>
           </div>
  
-          <!-- Books Card -->
+          <!-- Project Card -->
           <div class="bg-gray-900 p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <div class="overflow-hidden rounded-lg">
-                <img alt="Portfolio Website" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://www.smartbookspublishers.com/assets/img/class1/class-8.jpg" width="300"/>
+                <img alt="Portfolio Website" class="rounded-lg mb-4 transition-transform duration-300 ease-in-out hover:scale-110" height="200" src="https://storage.googleapis.com/a1aa/image/c-tOc5u894RvcBreOFVjN1D2Tjoh0Dr-hqf-YoVO4rw.jpg" width="300"/>
              </div>
              <h3 class="text-2xl font-bold mb-2 text-white">
-                Class 9 Book
+                Portfolio Website
              </h3>
              <p class="text-lg text-gray-300">
                 A personal portfolio showcasing various projects, skills, and achievements.
@@ -494,65 +412,43 @@
        <img alt="Illustration of Vishesh holding a phone and a laptop, ready to connect with others" class="rounded-lg shadow-lg" height="400" src="https://storage.googleapis.com/a1aa/image/tfa9xA_TZ8hMbyQ-e1zfMM844YvCWrqsejblmItX-2A.jpg" width="400"/>
       </div>
       <div class="md:w-1/2 mt-10 md:mt-0 md:pl-10">
-        <form id="contactForm" class="space-y-6 bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 max-w-lg mx-auto">
-            <h2 class="text-2xl font-bold text-center text-white">Get in Touch</h2>
-            
-            <div>
-                <label class="block text-lg font-medium text-gray-200 mb-1" for="name">Name</label>
-                <input 
-                    class="w-full p-4 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                    id="name" name="name" required type="text" placeholder="Enter your name"/>
-            </div>
         
-            <div>
-                <label class="block text-lg font-medium text-gray-200 mb-1" for="email">Email</label>
-                <input 
-                    class="w-full p-4 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                    id="email" name="email" required type="email" placeholder="Enter your email"/>
-            </div>
-        
-            <div>
-                <label class="block text-lg font-medium text-gray-200 mb-1" for="message">Message</label>
-                <textarea 
-                    class="w-full p-4 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
-                    id="message" name="message" required rows="4" placeholder="Type your message..."></textarea>
-            </div>
-        
-            <button class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
-                Send Message 🚀
-            </button>
-        </form>
-        
+<form id="contactForm" class="space-y-6" method="POST">
+    <div>
+       <label class="block text-lg font-medium text-white" for="name">Name</label>
+       <input class="w-full p-3 rounded-lg border border-gray-300 text-black" id="name" name="name" required type="text"/>
+    </div>
+    <div>
+       <label class="block text-lg font-medium text-white" for="email">Email</label>
+       <input class="w-full p-3 rounded-lg border border-gray-300 text-black" id="email" name="email" required type="email"/>
+    </div>
+    <div>
+       <label class="block text-lg font-medium text-white" for="message">Message</label>
+       <textarea class="w-full p-3 rounded-lg border border-gray-300 text-black" id="message" name="message" required rows="4"></textarea>
+    </div>
+    <button class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition duration-300" type="submit">
+       Send Message
+    </button>
+ </form>
 </div>
 </div>
 </div>
 </section>
-<script>
+ <!-- Script: Ensure it's placed after the form -->
+
+ <script>
     document.getElementById("contactForm").addEventListener("submit", async function(event) {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
     
-        const form = this;
-        const submitButton = form.querySelector("button");
         const nameInput = document.getElementById("name");
         const emailInput = document.getElementById("email");
         const messageInput = document.getElementById("message");
     
-        // Validate form inputs
-        if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-            showMessage("Please fill out all fields.", "error");
-            return;
-        }
-    
-        // Prepare data
         const data = {
             name: nameInput.value.trim(),
             email: emailInput.value.trim(),
             message: messageInput.value.trim()
         };
-    
-        // Disable the button to prevent multiple submissions
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
     
         try {
             const response = await fetch("/save-contact/", {
@@ -564,38 +460,42 @@
             if (!response.ok) throw new Error("Failed to submit the form");
     
             const result = await response.json();
-            showMessage(result.message || "Your message has been sent successfully!", "success");
+            alert(result.message);
     
-            // Reset the form after a short delay
-            setTimeout(() => {
-                form.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = "Send Message";
-            }, 2000);
+            // Clear the form fields after successful submission
+            nameInput.value = "";
+            emailInput.value = "";
+            messageInput.value = "";
         } catch (error) {
-            showMessage("Error: " + error.message, "error");
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
+            alert("Error: " + error.message);
         }
     });
-    
-    // Function to show success/error messages
-    function showMessage(message, type) {
-        const messageBox = document.createElement("div");
-        messageBox.textContent = message;
-        messageBox.className = `mt-4 p-3 text-center rounded-lg text-white ${
-            type === "success" ? "bg-green-500" : "bg-red-500"
-        }`;
-    
-        const form = document.getElementById("contactForm");
-        form.appendChild(messageBox);
-    
-        setTimeout(() => {
-            messageBox.remove();
-        }, 3000);
-    }
     </script>
     
+ <script>
+    document.getElementById("contactForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+    
+        const data = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value
+        };
+    
+        const response = await fetch("/save-contact/", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+        });
+    
+        const result = await response.json();
+        alert(result.message);
+    
+        // Clear the form fields
+        document.getElementById("contactForm").reset();
+    });
+    
+ </script>
  
  
  <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-12">
@@ -611,7 +511,14 @@
             <a class="text-xl hover:text-blue-700 transition-transform transform hover:scale-110" href="#">
                 <i class="fab fa-linkedin-in"></i>
             </a>
-        </div>        
+            <a class="text-xl hover:text-gray-400 transition-transform transform hover:scale-110" href="#">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        
+        <!-- Copyright Notice -->
+        <p class="text-lg font-semibold mb-4 opacity-90">&copy; 2025 Vardano Books. All rights reserved.</p>
+        
         <!-- Contact Details -->
         <div class="text-md space-y-2 animate-fadeIn">
             <p class="hover:text-gray-300 transition-colors duration-300">
@@ -624,8 +531,6 @@
                 🌐 Website: <a href="https://vardanobooks.netlify.app" target="_blank" class="underline">vardanobooks.netlify.app</a>
             </p>
         </div>
-        <!-- Copyright Notice -->
-        <p class="text-lg font-semibold mb-4 opacity-90">&copy; 2025 Vardano Books. All rights reserved.</p>
     </div>
 </footer>
 
