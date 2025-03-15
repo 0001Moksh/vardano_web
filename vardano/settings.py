@@ -20,10 +20,8 @@ SECRET_KEY = 'django-insecure-2)3hw-84k=%me70pix-jvo6phaxvczqk1m!l1gc@#&t&wu7y4)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://Vardano-books.onrender.com"]
+ALLOWED_HOSTS = ["https://vardano-books.onrender.com"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
-
-
 
 # Application definition
 
@@ -131,11 +129,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Path to your Firebase service account JSON file
 FIREBASE_CREDENTIALS_PATH = json_path
 # Initialize Firebase Admin SDK
-if not firebase_admin._apps:
+
+if FIREBASE_CREDENTIALS_PATH:
     cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
     firebase_admin.initialize_app(cred)
+else:
+    raise ValueError("FIREBASE_CREDENTIALS_PATH is not set")
 
-# Firestore Database Reference
 FIREBASE_DB = firestore.client()
 
 
