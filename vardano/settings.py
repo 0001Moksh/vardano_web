@@ -20,7 +20,9 @@ SECRET_KEY = 'django-insecure-2)3hw-84k=%me70pix-jvo6phaxvczqk1m!l1gc@#&t&wu7y4)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["https://Vardano-books.onrender.com"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 
 
 # Application definition
@@ -44,6 +46,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = 'vardano.urls'
