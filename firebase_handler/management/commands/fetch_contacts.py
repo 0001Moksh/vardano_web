@@ -1,10 +1,13 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 from django.core.management.base import BaseCommand
+from dotenv import dotenv_values
+getenv = dotenv_values(".env")
+json_path=getenv.get('json_path')
 
 # Check if Firebase app is already initialized
 if not firebase_admin._apps:
-    cred = credentials.Certificate("json/vardano-contact-form-1-firebase-adminsdk-fbsvc-de1e82152a.json")
+    cred = credentials.Certificate(json_path)
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()

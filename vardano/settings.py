@@ -1,6 +1,11 @@
 import firebase_admin
 from firebase_admin import credentials, firestore
 from pathlib import Path
+from dotenv import dotenv_values
+getenv = dotenv_values(".env")
+company_email=getenv.get('company_email')
+password=getenv.get('Mail_app_password')
+json_path=getenv.get('json_path')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,8 +126,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Path to your Firebase service account JSON file
-FIREBASE_CREDENTIALS_PATH = "json/vardano-contact-form-1-firebase-adminsdk-fbsvc-de1e82152a.json"
-
+FIREBASE_CREDENTIALS_PATH = json_path
 # Initialize Firebase Admin SDK
 if not firebase_admin._apps:
     cred = credentials.Certificate(FIREBASE_CREDENTIALS_PATH)
@@ -131,10 +135,6 @@ if not firebase_admin._apps:
 # Firestore Database Reference
 FIREBASE_DB = firestore.client()
 
-from dotenv import dotenv_values
-getenv = dotenv_values(".env")
-company_email=getenv.get('company_email')
-password=getenv.get('Mail_app_password')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
