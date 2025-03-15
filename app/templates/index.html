@@ -14,6 +14,35 @@
             font-family: 'Roboto', sans-serif;
         }
 
+.flip-container {
+  perspective: 1000px;
+  width: 400px;
+  height: 500px;
+}
+
+.flipper {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
         .fade-in {
             animation: fadeIn 2s ease-in-out;
         }
@@ -57,7 +86,7 @@
   </style>
  </head>
  <body class="gradient-bg text-gray-100 scroll-smooth dark-mode">
-    <header class="fixed w-full shadow-md p-4 z-50 top-0 bg-gradient-to-r from-gray-400 via-gray-500 to-black text-white shadow-2xl backdrop-blur-md border-b border-gray-700">
+    <header class="fixed w-full shadow-md p-4 z-50 top-0 bg-gray-900 hover:border-purple-300 text-white shadow-2xl backdrop-blur-md border-b border-gray-700">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="flex items-center">
@@ -77,7 +106,7 @@
                 <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#about">About</a></li>
                 <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#skills">Expertise</a></li>
                 <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#projects">Books</a></li>
-                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#experience">Experience</a></li>
+                <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#Journey">Journey</a></li>
                 <li><a class="nav-link hover:text-gray-300 transition-all duration-300" href="#contact">Contact</a></li>
             </ul>
     
@@ -93,7 +122,7 @@
                 <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#about">About</a></li>
                 <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#skills">Expertise</a></li>
                 <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#projects">Books</a></li>
-                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#experience">Experience</a></li>
+                <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#Journey">Journey</a></li>
                 <li><a class="nav-link block py-2 hover:text-gray-300 transition-all duration-300" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -130,21 +159,37 @@
      </h2>
      <p class="text-lg mb-6">
         At Vardano Books, we provide a vast selection of books across various genres, including academic, fiction, non-fiction, self-help, business, and more. Whether you're a bookstore, library, educational institution, or a bulk buyer, we offer competitive prices and seamless order fulfillment.     </p>
-     <a class="bg-white text-gray-600 px-6 py-3 rounded-full hover:bg-gray-200 transition duration-300" href="#projects">
-      View My Work
+        <button href="#projects" class="group group-hover:before:duration-500 group-hover:after:duration-500 after:duration-500 hover:border-purple-300 hover:before:[box-shadow:_20px_20px_20px_30px_#a21caf] duration-500 before:duration-500 hover:duration-500 underline underline-offset-2 hover:after:-right-8 hover:before:right-12 hover:before:-bottom-8 hover:before:blur hover:underline hover:underline-offset-4  origin-left hover:decoration-2 hover:text-purple-300 relative bg-neutral-800 h-16 w-64 border text-left p-3 text-gray-50 text-base font-bold rounded-lg  overflow-hidden  before:absolute before:w-12 before:h-12 before:content[''] before:right-1 before:top-1 before:z-10 before:bg-blue-500 before:rounded-full before:blur-lg  after:absolute after:z-10 after:w-20 after:h-20 after:content['']  after:bg-blue-300 after:right-8 after:top-3 after:rounded-full after:blur-lg">
+          Shopping Now!
+        </button>        
      </a>
     </div>
-    <div class="md:w-1/2 mt-10 md:mt-0 slide-in">
-     <img alt="A detailed illustration of Vishesh, a young enthusiastic web developer, working on a laptop with code on the screen" 
-     class="rounded-full" height="500" 
-     style="filter: drop-shadow(10px 10px 20px rgb(255, 255, 255)) 
-        drop-shadow(-10px -10px 80px rgba(0, 225, 255, 0.8));"
-     src="static/images/hero.png" width="500"/>
-    </div>
+    <div class="md:w-1/2 mt-1 md:mt-0 slide-in">
+      <div class="flip-container" onclick="this.classList.toggle('flipped')" onmouseleave="this.classList.remove('flipped')">
+          <div class="flipper">
+              <!-- Front Image -->
+              <div class="front">
+                  <img alt="vardanobooks.com" 
+                      class="" height="500" 
+                      style="filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.69)) 
+                          drop-shadow(-10px -10px 80px rgba(0, 225, 255, 0.49));"
+                      src="/static/images/hero5.png" width="400"/>
+              </div>
+              <!-- Back Image -->
+              <div class="back">
+                  <img alt="vardanobooks.com" 
+                      class="" height="500" 
+                      style="filter: drop-shadow(10px 10px 20px rgba(255, 255, 255, 0.69)) 
+                          drop-shadow(-10px -10px 80px rgba(0, 225, 255, 0.49));"
+                      src="/static/images/hero4.png" width="400"/>
+              </div>
+          </div>
+      </div>
+  </div>
    </div>
   </section>
   <!-- About Section -->
-<section class="bg-gray-800 py-20" id="about">
+<section class="border-2 bg-gray-800 py-20" id="about">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-center mb-12 text-white animate-fadeIn">
             About Us
@@ -203,7 +248,7 @@
           Our Expertise
        </h2>
        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+        <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-book text-4xl mb-4 text-white animate-pulse"></i>
             <h3 class="text-2xl font-bold mb-2 text-white">
                 Book Distribution
@@ -212,7 +257,7 @@
                 Supplying books across various genres to retailers, schools, and libraries.
              </p>
           </div>
-          <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+          <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-warehouse text-4xl mb-4 text-white animate-pulse"></i>
              <h3 class="text-2xl font-bold mb-2 text-white">
                 Inventory Management
@@ -221,7 +266,7 @@
                 Efficient stock handling, tracking, and logistics for bulk book orders.
              </p>
           </div>
-          <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+          <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-truck  text-4xl mb-4 text-white animate-pulse"></i>
             <h3 class="text-2xl font-bold mb-2 text-white">
                 Logistics & Delivery
@@ -230,7 +275,7 @@
                 Nationwide and international book shipping with fast turnaround times.
              </p>
           </div>
-          <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+          <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-handshake  text-4xl mb-4 text-white animate-pulse"></i>
             <h3 class="text-2xl font-bold mb-2 text-white">
                 Vendor Partnerships
@@ -239,7 +284,7 @@
                 Collaborating with publishers and authors for a seamless supply chain.
              </p>
           </div>
-          <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+          <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-store  text-4xl mb-4 text-white animate-pulse"></i>
             <h3 class="text-2xl font-bold mb-2 text-white">
                 Retail Solutions
@@ -248,7 +293,7 @@
                 Supplying bookstores, online sellers, and institutions with curated collections.
              </p>
           </div>
-          <div class="bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
+          <div class="border-2 border-purple-400 bg-gray-600 p-6 rounded-lg shadow-lg text-center transition-transform transform hover:-rotate-3 hover:scale-105 hover:bg-gray-500 hover:shadow-2xl duration-300 ease-in-out">
             <i class="fas fa-globe  text-4xl mb-4 text-white animate-pulse"></i>
             <h3 class="text-2xl font-bold mb-2 text-white">
                 Digital Integration
@@ -261,7 +306,7 @@
     </div>
  </section>
  <!-- Books Section -->
-<section class="bg-gray-700 py-20" id="projects">
+<section class="border-2 bg-gray-700 py-20" id="projects">
     <div class="container mx-auto px-6">
        <h1 class="text-4xl font-bold text-center mb-12 text-white">
         Books
@@ -277,7 +322,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A highly responsive web application featuring an interactive UI with modern design.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span 
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+
           </div>
  
           <!-- Books Card -->
@@ -291,6 +354,24 @@
              <p class="text-lg text-gray-300">
                 A blog platform featuring engaging content, clean layouts, and smooth navigation.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button></a>
           </div>
  
           <!-- Books Card -->
@@ -304,6 +385,24 @@
              <p class="text-lg text-gray-300">
                 A feature-rich e-commerce website with product listings, shopping cart, and checkout.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button>
           </div>
  
           <!-- Books Card -->
@@ -316,7 +415,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -330,6 +447,24 @@
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button>
           </div>
  
           <!-- Books Card -->
@@ -342,7 +477,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -355,7 +508,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -369,6 +540,24 @@
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button>
           </div>
  
           <!-- Books Card -->
@@ -381,7 +570,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -394,7 +601,25 @@
              </h3>
              <p class="text-lg text-gray-300">
                 A modern social media platform with user profiles, news feeds, and interactive features.
-             </p>
+             </p><button
+             class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+           >
+             View
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+             ></span>
+             <span
+               class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+             ></span>
+             <span
+               class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+               >Explore!</span
+             >
+           </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -408,6 +633,25 @@
              <p class="text-lg text-gray-300">
                 A powerful task management tool with a Kanban board and real-time tracking.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button>
+             
           </div>
  
           <!-- Books Card -->
@@ -421,73 +665,92 @@
              <p class="text-lg text-gray-300">
                 A personal portfolio showcasing various projects, skills, and achievements.
              </p>
+             <button
+               class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group"
+             >
+               View
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-200 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-blue-400 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-bottom"
+               ></span>
+               <span
+                 class="absolute w-36 h-32 -top-8 -left-2 bg-purple-600 rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-bottom"
+               ></span>
+               <span
+                 class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                 >Explore!</span
+               >
+             </button>
+             
           </div>
        </div>
     </div>
- </section>
- <!-- Experience Section -->
-<section class="py-20" id="experience">
-    <div class="container mx-auto px-6">
-       <h2 class="text-3xl font-bold text-center mb-12 text-white">
-          Experience
-       </h2>
-       <div class="space-y-8">
-          <!-- Experience 1 -->
-          <div class="bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
-            <h3 class="text-2xl font-bold mb-2 text-white">
-                Internship at XYZ Company
-             </h3>
-             <p class="text-lg mb-4 text-gray-300">
-                June 2022 - August 2022
-             </p>
-             <p class="text-lg text-gray-300">
-                Worked on developing a dynamic web application for internal use. Gained experience in full-stack development using React and Node.js.
-             </p>
-          </div>
-          <!-- Experience 2 -->
-          <div class="bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
+ </section><!-- Journey Section -->
+ <section class="py-20" id="Journey">
+     <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-12 text-white">
+           Our Journey
+        </h2>
+        <div class="space-y-8">
+           <!-- Journey 1 -->
+           <div class="border-2 border-purple-800 bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
              <h3 class="text-2xl font-bold mb-2 text-white">
-                Freelance Web Developer
-             </h3>
-             <p class="text-lg mb-4 text-gray-300">
-                January 2021 - Present
-             </p>
-             <p class="text-lg text-gray-300">
-                Developed various websites and web applications for clients. Specialized in creating responsive and user-friendly interfaces.
-             </p>
-          </div>
-          <!-- Experience 3 -->
-          <div class="bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
-            <h3 class="text-2xl font-bold mb-2 text-white">
-                Book Supping Specialist
-             </h3>
-             <p class="text-lg mb-4 text-gray-300">
-                March 2023 - Present
-             </p>
-             <p class="text-lg text-gray-300">
-                Managed and optimized book-supping logistics for various online platforms. Focused on inventory management, supplier coordination, and customer satisfaction.
-             </p>
-          </div>
-          <!-- Experience 4 -->
-          <div class="bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
-            <h3 class="text-2xl font-bold mb-2 text-white">
-                E-commerce Operations Manager
-             </h3>
-             <p class="text-lg mb-4 text-gray-300">
-                July 2022 - February 2023
-             </p>
-             <p class="text-lg text-gray-300">
-                Led the end-to-end management of an e-commerce business, including product listing, supply chain coordination, and customer service improvements.
-             </p>
-          </div>
-       </div>
-    </div>
- </section>
+                 Established Publishing House
+              </h3>
+              <p class="text-lg mb-4 text-gray-300">
+                 Since 2010
+              </p>
+              <p class="text-lg text-gray-300">
+                 We have been committed to bringing compelling stories and knowledge to readers worldwide. Our journey started with a vision to support authors and distribute quality books.
+              </p>
+           </div>
+           <!-- Journey 2 -->
+           <div class="border-2 border-purple-800 bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
+              <h3 class="text-2xl font-bold mb-2 text-white">
+                 Digital Publishing Revolution
+              </h3>
+              <p class="text-lg mb-4 text-gray-300">
+                 2015 - Present
+              </p>
+              <p class="text-lg text-gray-300">
+                 Embracing the digital age, we expanded into e-books and audiobooks, making our publications accessible to a global audience.
+              </p>
+           </div>
+           <!-- Journey 3 -->
+           <div class="border-2 border-purple-800 bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
+             <h3 class="text-2xl font-bold mb-2 text-white">
+                 Partnerships with Authors & Distributors
+              </h3>
+              <p class="text-lg mb-4 text-gray-300">
+                 2018 - Present
+              </p>
+              <p class="text-lg text-gray-300">
+                 We have collaborated with renowned authors and established strong distribution networks to bring books to every reader’s doorstep.
+              </p>
+           </div>
+           <!-- Journey 4 -->
+           <div class="border-2 border-purple-800 bg-gray-700 p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:bg-gradient-to-r from-gray-500 via-gray-800 to-gray-900 text-white shadow-lg backdrop-blur-lg">
+             <h3 class="text-2xl font-bold mb-2 text-white">
+                 Community & Literary Events
+              </h3>
+              <p class="text-lg mb-4 text-gray-300">
+                 2020 - Present
+              </p>
+              <p class="text-lg text-gray-300">
+                 Hosting book fairs, author meetups, and literary workshops to foster a love for reading and storytelling among readers and writers alike.
+              </p>
+           </div>
+        </div>
+     </div>
+  </section>
+ 
   <!-- Contact Form -->
   <section class="bg-gray-800 py-20" id="contact">
     <div class="container mx-auto px-6">
      <h2 class="text-3xl font-bold text-center mb-12">
-      Contact Me
+      Contact Us
      </h2>
      <div class="flex flex-col md:flex-row items-center">
       <div class="md:w-1/2">
@@ -528,75 +791,84 @@
 </div>
 </section>
 <script>
-    document.getElementById("contactForm").addEventListener("submit", async function(event) {
-        event.preventDefault(); // Prevent default form submission
-    
-        const form = this;
-        const submitButton = form.querySelector("button");
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const messageInput = document.getElementById("message");
-    
-        // Validate form inputs
-        if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-            showMessage("Please fill out all fields.", "error");
-            return;
-        }
-    
-        // Prepare data
-        const data = {
-            name: nameInput.value.trim(),
-            email: emailInput.value.trim(),
-            message: messageInput.value.trim()
-        };
-    
-        // Disable the button to prevent multiple submissions
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
-    
-        try {
-            const response = await fetch("/save-contact/", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: { "Content-Type": "application/json" }
-            });
-    
-            if (!response.ok) throw new Error("Failed to submit the form");
-    
-            const result = await response.json();
-            showMessage(result.message || "Your message has been sent successfully!", "success");
-    
-            // Reset the form after a short delay
-            setTimeout(() => {
-                form.reset();
-                submitButton.disabled = false;
-                submitButton.textContent = "Send Message";
-            }, 2000);
-        } catch (error) {
-            showMessage("Error: " + error.message, "error");
+  document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = this;
+    const submitButton = form.querySelector("button");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const messageInput = document.getElementById("message");
+
+    if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+        showMessage("Please fill out all fields.", "error");
+        return;
+    }
+
+    const data = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        message: messageInput.value.trim()
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Sending...";
+
+    try {
+        const response = await fetch("/save-contact/", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+        });
+
+        if (!response.ok) throw new Error("Failed to submit the form");
+
+        const result = await response.json();
+        showMessage(result.message || "Your message has been sent successfully!", "success");
+
+        // Animation effect (Optional)
+        form.style.opacity = 0.5;
+        setTimeout(() => {
+            form.style.opacity = 1;
+        }, 500);
+
+        // Reset form after success
+        setTimeout(() => {
+            form.reset();
             submitButton.disabled = false;
             submitButton.textContent = "Send Message";
+        }, 2000);
+    } catch (error) {
+        showMessage("Error: Failed to fetch", "error");
+
+        // Animate error message
+        const errorBox = document.querySelector(".error");
+        if (errorBox) {
+            errorBox.style.transform = "scale(1.1)";
+            setTimeout(() => errorBox.style.transform = "scale(1)", 200);
         }
-    });
-    
-    // Function to show success/error messages
-    function showMessage(message, type) {
-        const messageBox = document.createElement("div");
-        messageBox.textContent = message;
-        messageBox.className = `mt-4 p-3 text-center rounded-lg text-white ${
-            type === "success" ? "bg-green-500" : "bg-red-500"
-        }`;
-    
-        const form = document.getElementById("contactForm");
-        form.appendChild(messageBox);
-    
-        setTimeout(() => {
-            messageBox.remove();
-        }, 3000);
+
+        submitButton.disabled = false;
+        submitButton.textContent = "Send Message";
     }
-    </script>
-    
- 
+});
+
+function showMessage(message, type) {
+    const messageBox = document.createElement("div");
+    messageBox.textContent = message;
+    messageBox.className = `mt-4 p-3 text-center rounded-lg text-white ${
+        type === "success" ? "bg-green-500 animate-bounce" : "bg-red-500 animate-pulse"
+    }`;
+
+    const form = document.getElementById("contactForm");
+    form.appendChild(messageBox);
+
+    setTimeout(() => {
+        messageBox.remove();
+    }, 3000);
+}
+</script>
+
  
  <footer class="bg-gradient-to-r from-gray-900 to-black text-white py-12">
     <div class="container mx-auto text-center">

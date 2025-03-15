@@ -4,7 +4,7 @@ from django.core.management.base import BaseCommand
 
 # Check if Firebase app is already initialized
 if not firebase_admin._apps:
-    cred = credentials.Certificate("C:\\Users\\renuk\\OneDrive\\Desktop\\vardano web\\vardano\\vardano-contact-section-firebase-adminsdk-fbsvc-748ca56294.json")
+    cred = credentials.Certificate("json/vardano-contact-form-1-firebase-adminsdk-fbsvc-de1e82152a.json")
     firebase_admin.initialize_app(cred)
 
 db = firestore.client()

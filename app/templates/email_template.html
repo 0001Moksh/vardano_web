@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; }
+        h2 { color: #333; }
+        p { font-size: 16px; }
+        .footer { margin-top: 20px; font-size: 14px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Message:</strong></p>
+        <p>{{ message }}</p>
+        <hr>
+        <p class="footer">This is an automated email. Please do not reply.</p>
+    </div>
+</body>
+</html>
